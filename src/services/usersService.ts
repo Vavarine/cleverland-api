@@ -46,9 +46,6 @@ export const usersService = {
 
 		const { email, password } = data
 
-		console.log('auth data')
-		console.log(email, password)
-
 		const fechedUser = await usersController.showByEmail(email)
 
 		if (!fechedUser) {
