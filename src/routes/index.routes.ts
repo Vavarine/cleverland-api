@@ -1,9 +1,12 @@
-import { Router } from "express";
+import { Router } from 'express'
+import { usersRoutes } from './users.routes'
 
-const routes = Router();
+const routes = Router()
 
-routes.get("/teste", (req, res) => {
-  return res.status(201).json({ message: "teste" });
-});
+routes.get('/', (req, res) => {
+	return res.status(201).json({ message: 'Welcome to Cleverland API!' })
+})
 
-export default routes;
+routes.use('/users', usersRoutes)
+
+export default routes
