@@ -22,6 +22,7 @@ export const usersService = {
 		await schema.validate(req.body, { abortEarly: false })
 
 		const hash = await bcrypt.hash(data.password, Number(saltRounds))
+    
 		const user = await usersController.create({ ...data, password: hash })
 
 		return res.status(201).json(usersView.render(user))
